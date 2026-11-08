@@ -5,6 +5,7 @@
 - Documented the **security audit** in the **README.md**.
 - Added **HOWTO.md**, a collection of how-to guides.
 - Documented mounting the cipherdir directly with **gocryptfs** in **HOWTO.md**.
+- Moved **ECOSYSTEM.md** to a separate repository.
 
 ## [0.7.2] - 2026-11-07
 - Extended the **audit** target to install **pip-audit** in the running container and scan the dependencies.

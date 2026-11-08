@@ -39,7 +39,6 @@ If you like it, star it ⭐ — it helps discoverability. Thank you!
 - Architectural decisions: [ADR.md](./ADR.md)
 - OWASP self-assessment: [SECURITY.md](./SECURITY.md)
 - How-to guides: [HOWTO.md](./HOWTO.md)
-- Compatible software: [ECOSYSTEM.md](./ECOSYSTEM.md)
 
 ## Quick start
 
