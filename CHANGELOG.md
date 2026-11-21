@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.7.4] - 2026-11-21
+- Renamed the Docker image and container to **hidden-s3**.
+- Updated the **GitHub** and **Docker Hub** links in the **GitHub Pages** documentation.
+- Updated the container stop command in **HOWTO.md**.
+
 ## [0.7.3] - 2026-11-08
 - Upgraded **apt** packages and **pip** during the image build.
 - Documented the **security audit** in the **README.md**.

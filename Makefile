@@ -39,9 +39,9 @@ install:
 	@sudo mountpoint -q "$(VOLUME_SECRETS_ROOT)" || sudo mount --rbind "$(VOLUME_SECRETS_ROOT)" "$(VOLUME_SECRETS_ROOT)"
 	@sudo mount --make-shared "$(VOLUME_SECRETS_ROOT)"
 
-	docker build -t hidden .
+	docker build -t hidden-s3 .
 
-	@docker rm -f hidden >/dev/null 2>&1 || true
+	@docker rm -f hidden-s3 >/dev/null 2>&1 || true
 
 	docker run -dit \
 	--init \
@@ -54,21 +54,21 @@ install:
 	-p $(VERSITY_WEBGUI_PORT):$(VERSITY_WEBGUI_PORT) \
 	-v hidden-cipherdir:$(INSTALL_CIPHERDIR) \
 	--mount type=bind,source=$(VOLUME_SECRETS_ROOT),target=$(INSTALL_SECRETS_ROOT),bind-propagation=rslave \
-	--name hidden \
-	hidden
+	--name hidden-s3 \
+	hidden-s3
 
 stop:
-	docker stop hidden
+	docker stop hidden-s3
 
 uninstall:
-	docker rm -f hidden
+	docker rm -f hidden-s3
 
 audit:
-	docker exec hidden pip install bandit
-	docker exec hidden bandit -r /opt/hidden/app
+	docker exec hidden-s3 pip install bandit
+	docker exec hidden-s3 bandit -r /opt/hidden/app
 
-	docker exec hidden pip install semgrep
-	docker exec hidden semgrep scan --config p/python --config p/security-audit /opt/hidden/app
+	docker exec hidden-s3 pip install semgrep
+	docker exec hidden-s3 semgrep scan --config p/python --config p/security-audit /opt/hidden/app
 
-	docker exec hidden pip install pip-audit
-	docker exec hidden pip-audit -r /opt/hidden/requirements.txt
+	docker exec hidden-s3 pip install pip-audit
+	docker exec hidden-s3 pip-audit -r /opt/hidden/requirements.txt

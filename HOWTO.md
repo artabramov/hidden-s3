@@ -46,7 +46,7 @@ in the [http://localhost:8081/docs](http://localhost:8081/docs).
 Stop the container:
 
 ```sh
-docker stop hidden
+docker stop hidden-s3
 ```
 
 Locate the encrypted volume:
